@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing básica</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { container: { center: true, padding: '1rem' } } }
+    }
+  </script>
+
+  <style>
+    /* Animación de aparición al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200/60 dark:border-slate-800">
+    <div class="container flex items-center justify-between py-3">
+      <a href="#" class="flex items-center gap-2 font-semibold">
+        <svg width="28" height="28" viewBox="0 0 24 24" class="text-indigo-600 dark:text-indigo-400">
+          <path fill="currentColor" d="M12 2L2 7l10 5l10-5zm0 7L2 14l10 5l10-5z"/>
+        </svg>
+        <span>MiMarca</span>
+      </a>
+
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="rounded-xl border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm hover:bg-slate-50 dark:hover:bg-slate-800" aria-label="Cambiar tema">🌙</button>
+        <button id="menuBtn" class="md:hidden rounded-xl border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm" aria-expanded="false" aria-controls="mobileMenu">Menú</button>
+      </div>
+    </div>
+
+    <nav id="mobileMenu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800">
+      <div class="container py-3 space-y-2">
+        <a href="#beneficios" class="block">Beneficios</a>
+        <a href="#precios" class="block">Precios</a>
+        <a href="#faq" class="block">FAQ</a>
+        <a href="#contacto" class="block">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="container grid md:grid-cols-2 gap-8 items-center py-16 md:py-24">
+    <div class="reveal">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Una landing <span class="text-indigo-600 dark:text-indigo-400">simple</span> y efectiva
+      </h1>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+        HTML + Tailwind + un toque de JS para interactividad. Ideal para practicar y lanzar rápido.
+      </p>
+      <div class="mt-6 flex gap-3">
+        <a href="#contacto" class="inline-block rounded-xl bg-indigo-600 px-5 py-3 font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">Empieza gratis</a>
+        <a href="#beneficios" class="inline-block rounded-xl border border-slate-300 dark:border-slate-700 px-5 py-3 font-medium hover:bg-slate-50 dark:hover:bg-slate-800">Ver más</a>
+      </div>
+      <div class="mt-6 text-sm text-slate-500 dark:text-slate-400">⭐️⭐️⭐️⭐️⭐️ 4.9/5 por más de 1.200 usuarios</div>
+    </div>
+
+    <div class="reveal">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm bg-white dark:bg-slate-950">
+        <div class="h-48 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500"></div>
+        <div class="mt-4 space-y-2">
+          <div class="h-4 w-3/4 bg-slate-200 dark:bg-slate-800 rounded"></div>
+          <div class="h-4 w-2/3 bg-slate-200 dark:bg-slate-800 rounded"></div>
+          <div class="h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="bg-slate-50 dark:bg-slate-950/40 border-y border-slate-200 dark:border-slate-800">
+    <div class="container py-16 md:py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center reveal">Beneficios</h2>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-950">
+          <h3 class="font-semibold text-lg">Diseño responsive</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Utilidades Tailwind para móvil, tablet y desktop.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-950">
+          <h3 class="font-semibold text-lg">Modo oscuro</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Preferencia guardada en <code>localStorage</code>.</p>
+        </article>
+        <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-950">
+          <h3 class="font-semibold text-lg">Animaciones suaves</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Aparecen al hacer scroll con IntersectionObserver.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios" class="container py-16 md:py-20">
+    <h2 class="text-3xl md:text-4xl font-bold text-center reveal">Precios</h2>
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+        <p class="text-sm text-slate-500">Starter</p>
+        <p class="mt-2 text-4xl font-extrabold">$0</p>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-300">
+          <li>1 proyecto</li><li>Soporte por email</li><li>Actualizaciones básicas</li>
+        </ul>
+        <a href="#contacto" class="mt-6 inline-block w-full text-center rounded-xl bg-slate-900 dark:bg-white dark:text-slate-900 px-5 py-3 font-medium text-white hover:opacity-90">Empezar</a>
+      </div>
+
+      <div class="reveal rounded-2xl border-2 border-indigo-500 p-6 shadow-md">
+        <p class="text-sm text-slate-500">Pro</p>
+        <p class="mt-2 text-4xl font-extrabold">$19</p>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-300">
+          <li>Proyectos ilimitados</li><li>Soporte prioritario</li><li>Integraciones</li>
+        </ul>
+        <a href="#contacto" class="mt-6 inline-block w-full text-center rounded-xl bg-indigo-600 px-5 py-3 font-medium text-white hover:bg-indigo-700">Elegir Pro</a>
+      </div>
+
+      <div class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+        <p class="text-sm text-slate-500">Empresa</p>
+        <p class="mt-2 text-4xl font-extrabold">A medida</p>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-300">
+          <li>SSO / Auditoría</li><li>Soporte 24/7</li><li>Onboarding guiado</li>
+        </ul>
+        <a href="#contacto" class="mt-6 inline-block w-full text-center rounded-xl border border-slate-300 dark:border-slate-700 px-5 py-3 font-medium hover:bg-slate-50 dark:hover:bg-slate-800">Hablar ventas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-slate-50 dark:bg-slate-950/40 border-y border-slate-200 dark:border-slate-800">
+    <div class="container py-16 md:py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center reveal">Preguntas frecuentes</h2>
+      <div class="mt-8 space-y-4">
+        <details class="reveal rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-950">
+          <summary class="cursor-pointer font-medium">¿Necesito instalar algo?</summary>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">No. Tailwind entra por CDN y funciona localmente.</p>
+        </details>
+        <details class="reveal rounded-xl border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-950">
+          <summary class="cursor-pointer font-medium">¿Puedo personalizar colores?</summary>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Sí, cambia clases como <code>bg-indigo-600</code>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="container py-16 md:py-20">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="reveal">
+        <h2 class="text-3xl md:text-4xl font-bold">Hablemos</h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">Déjanos tu correo y validamos en el navegador.</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-500 dark:text-slate-400">
+          <li>• Sin recargar la página</li>
+          <li>• Errores claros junto al campo</li>
+          <li>• Mensaje de éxito inmediato</li>
+        </ul>
+      </div>
+
+      <form id="contactForm" class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-950">
+        <label class="block text-sm font-medium" for="name">Nombre</label>
+        <input id="name" name="name" type="text" required placeholder="Tu nombre"
+               class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+
+        <label class="block text-sm font-medium mt-4" for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="tu@email.com"
+               class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        <p id="emailError" class="mt-1 text-sm text-rose-600 hidden">Por favor ingresa un email válido.</p>
+
+        <label class="block text-sm font-medium mt-4" for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="4" placeholder="¿En qué te ayudamos?"
+                  class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+
+        <button type="submit" id="sendBtn"
+                class="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <span id="btnText">Enviar</span>
+          <svg id="btnSpinner" class="hidden animate-spin" width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity=".25"/>
+            <path d="M4 12a8 8 0 0 1 8-8" stroke="currentColor" stroke-width="4" fill="none"/>
+          </svg>
+        </button>
+
+        <p id="successMsg" class="mt-4 hidden rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 px-3 py-2 text-green-700 dark:text-green-300 text-sm">
+          ¡Gracias! Te escribiremos pronto.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="container py-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col md:flex-row items-center justify-between gap-2">
+      <p>© <span id="year"></span> MiMarca. Todos los derechos reservados.</p>
+      <a href="#" class="hover:underline">Términos & Privacidad</a>
+    </div>
+  </footer>
+
+  <!-- Tu JS separado -->
+  <script src="./app.js"></script>
+</body>
+</html>
